@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+    <style type='text/css'>
+        /* Efek Bola Salju */
+        .snowball{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:20}
+        .snowsand{height:100%;position:relative;overflow:hidden;z-index:1}
+
+    </style>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="tts.css">
+    <link rel="stylesheet" href="stopwatch.css">
+    <title>TTS ARC - LEVEL 1</title>
+</head>
+<div class='snowsand'>
+    <canvas class='snowball' id='snowball'></canvas>
+    </div>
+    <script type='text/javascript'>
+    //<![CDATA[
+    !function(){function t(t){var n=t.getContext("2d"),e=0,i=0,o=[],d=function(){this.x=this.y=this.dx=this.dy=0,this.reset()};function a(){e=window.innerWidth,i=window.innerHeight,t.width=e,t.height=i,function(t){if(t!=o.length){o=[];for(var n=0;n<t;n++)o.push(new d)}}(e*i/1e4)}d.prototype.reset=function(){this.y=Math.random()*i,this.x=Math.random()*e,this.dx=1*Math.random()-.5,this.dy=.5*Math.random()+.5},a(),function t(){n.clearRect(0,0,e,i),n.fillStyle="rgba(255,255,255,.3)",o.forEach(function(t){t.y+=t.dy,t.x+=t.dx,t.y>i&&(t.y=0),t.x>e&&(t.reset(),t.y=0),n.beginPath(),n.arc(t.x,t.y,5,0,2*Math.PI,!1),n.fill()}),window.requestAnimationFrame(t)}(),window.addEventListener("resize",a)}var n;n=function(){t(document.getElementById("snowball"))},"loading"!=document.readyState?n():document.addEventListener("DOMContentLoaded",n)}();
+    //]]>
+    </script>
+
+<body onload="startStop()">
+    <header>
+        <div class="header">
+        <a href="home" class="ARC">ARC</a>
+        <ul>
+            <li><a href="home" class="active">Home</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+        </div>
+        <div class="popuppetunjuk" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <h5> Petunjuk Bermain </h5>
+                        <p style="font-size: 12px;"> 1. Pemain akan dihadapkan oleh teka teki silang mendatar dan menurun</p>
+                        <p style="font-size: 12px;"> 2. Teka teki silang yang disediakan diambil dari materi networking pada Day-4 ARC</p>
+                        <p style="font-size: 12px;"> 3. Untuk mengisi kolom, pemain harus menekan tombol "PILIH" terlebih dahulu sesuai dengan kolom yang ingin diisi </p>
+                        <p style="font-size: 12px;"> 4. Jika jawaban yang dimasukkan benar, kolom akan berubah menjadi warna hijau yang menandakan jawaban benar dan kolom berada di kondisi disabled</p>
+                        <p style="font-size: 12px;"> 5. Setelah semua jawaban terisi, pemain dapat menekan tombol "SELESAI" untuk pergi ke level selanjutnya</p>
+                        <p style="font-size: 12px;"> 6. Ranking pemain akan dihitung berdasarkan seberapa cepat pemain bisa menyelesaikan teka teki silang </p>
+                </div>
+                <button class="buttonpetunjuk" onclick="togglePopup()">Petunjuk Bermain</button>
+            </div> 
+        </div>
+        <div>
+            <div id="display">
+                00:00
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="side">
+                        <div class="col align-self-center">
+                            <h5>MENDATAR</h5>
+                            <div class="boxpertanyaan">
+                                <div class="pertanyaan">
+                                    <p style="font-size: 14px;">1. ___ adalah sekumpulan sistem komputer (device) yang saling terhubung</p>
+                                </div>
+                                <div class="pertanyaan"><button type="button" name="d1"
+                                        class="buttonpilih">PILIH</button>
+                                </div>
+                            </div>
+                            <h5>MENURUN</h5>
+                                <div class="boxpertanyaan">
+                                    <div class="pertanyaan">
+                                        <p style="font-size: 14px;">1. ___ adalah dua atau lebih jaringan yang bisa berkomunikasi dengan satu sama lain</p>
+                                        </div>
+                                    <div class="pertanyaan"><button type="button" name="m1"
+                                            class="buttonpilih">PILIH</button>
+                                    </div>
+                                </div>
+                                <div class="boxpertanyaan">
+                                    <div class="pertanyaan">
+                                        <p style="font-size: 14px;">2. "www" adalah kepanjangan dari World Wide ___</p>
+                                    </div>
+                                    <div class="pertanyaan"><button type="button" name="m2"
+                                            class="buttonpilih">PILIH</button>
+                                    </div>
+                                </div>
+                                <div class="boxpertanyaan">
+                                    <div class="pertanyaan">
+                                        <p style="font-size: 14px;">3. ___ merupakan unit terkece</p>
+                                    </div>
+                                    <div class="pertanyaan"><button type="button" name="m3"
+                                            class="buttonpilih">PILIH</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    
+                    <div class="main">
+                        <div class="col">
+                            <table class=" tabel">
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m3 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="d1 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 m2 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 m3 input" type="text" maxlength="1"></td>
+                                    <td class="block"><input class="d1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>    
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m2 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m3 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m2 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"><input class="m1 input" type="text" maxlength="1"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                                <tr>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                    <td class="block"></td>
+                                </tr>
+                            </table>
+                            <div class="nextlevel">
+                                <h1>
+                                    <button type="button" id="next-level"> NEXT LEVEL </button></a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <!-- Optional JavaScript -->
+<script src="tts.js"></script>
+<script src="stopwatch.js"></script>
+
+<script>
+        $(document).ready(function() {
+            $('#next-level').attr('disabled', true);
+            $('#next-level').click(function() {
+                localStorage.setItem("time-tts1", seconds);
+                window.location.href = 'tts2';
+            });
+        })
+</script>
+</body>
+
+</html>

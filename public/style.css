@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("e.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 20px 20px;
+}
+
+h2 {
+	font-size: 2em;
+	position: center;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+  }
+
+ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    position: relative;
+    list-style: none;
+}
+
+ul li a{
+    position: relative;
+    margin: 0 15px;
+    text-decoration:none;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    transition: 0.6s;
+    z-index: 100000;
+
+}
+
+ul li a:hover{
+    background-color: white;
+    color: black;
+}
+
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.ARC {
+    top: 10px;
+    left: 20px;
+    position: relative;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.6s;    
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title hl{
+    color: white;
+    font-size: 66px
+}
+
+.button{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%)
+}
+
+.btn{
+    border: 1px solid white;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.6s;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+
+.button .overlay {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100vw;
+	height:100vh;
+	background:rgba(0,0,0,0.7);
+	z-index:1;
+	display:none;
+  }
+   
+  .button .content {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%) scale(0);
+	background:#fff;
+	width:500px;
+	height:340px;
+	z-index:2;
+	text-align:center;
+	padding:20px;
+	box-sizing:border-box;
+	font-family:"Open Sans",sans-serif;
+  }
+   
+  .button .close-btn {
+	cursor:pointer;
+	position:absolute;
+	right:20px;
+	top:20px;
+	width:30px;
+	height:30px;
+	background:#222;
+	color:#fff;
+	font-size:25px;
+	font-weight:600;
+	line-height:30px;
+	text-align:center;
+	border-radius:50%;
+  }
+   
+.button.active .overlay {
+	display:block;
+  }
+   
+.button.active .content {
+	transition:all 300ms ease-in-out;
+	transform:translate(-50%,-50%) scale(1);
+  }
+
+  .buttonpetunjuk {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	padding:15px;
+	font-size:18px;
+	border:2px solid #222;
+	color:#222;
+	text-transform:uppercase;
+	font-weight:600;
+	background:#fff;
+  }
+
+  .popupabout .overlay {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100vw;
+	height:100vh;
+	background:rgba(0,0,0,0.7);
+	z-index:1;
+	display:none;
+  }
+   
+  .popupabout .content {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%) scale(0);
+	background:#fff;
+	width:500px;
+	height:340px;
+	z-index:2;
+	text-align:center;
+	padding:20px;
+	box-sizing:border-box;
+	font-family:"Open Sans",sans-serif;
+  }
+   
+  .popupabout .close-btn {
+	cursor:pointer;
+	position:absolute;
+	right:20px;
+	top:20px;
+	width:30px;
+	height:30px;
+	background:#222;
+	color:#fff;
+	font-size:25px;
+	font-weight:600;
+	line-height:30px;
+	text-align:center;
+	border-radius:50%;
+  }
+   
+.popupabout.active .overlay {
+	display:block;
+  }
+   
+.popupabout.active .content {
+	transition:all 300ms ease-in-out;
+	transform:translate(-50%,-50%) scale(1);
+  }

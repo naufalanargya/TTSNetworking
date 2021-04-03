@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<style type='text/css'>
+  /* Efek Bola Salju */
+  .snowball{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:20}
+  .snowsand{height:100%;position:relative;overflow:hidden;z-index:1}
+</style>
+<div class='snowsand'>
+  <canvas class='snowball' id='snowball'></canvas>
+  </div>
+  <script type='text/javascript'>
+  //<![CDATA[
+  !function(){function t(t){var n=t.getContext("2d"),e=0,i=0,o=[],d=function(){this.x=this.y=this.dx=this.dy=0,this.reset()};function a(){e=window.innerWidth,i=window.innerHeight,t.width=e,t.height=i,function(t){if(t!=o.length){o=[];for(var n=0;n<t;n++)o.push(new d)}}(e*i/1e4)}d.prototype.reset=function(){this.y=Math.random()*i,this.x=Math.random()*e,this.dx=1*Math.random()-.5,this.dy=.5*Math.random()+.5},a(),function t(){n.clearRect(0,0,e,i),n.fillStyle="rgba(255,255,255,.3)",o.forEach(function(t){t.y+=t.dy,t.x+=t.dx,t.y>i&&(t.y=0),t.x>e&&(t.reset(),t.y=0),n.beginPath(),n.arc(t.x,t.y,5,0,2*Math.PI,!1),n.fill()}),window.requestAnimationFrame(t)}(),window.addEventListener("resize",a)}var n;n=function(){t(document.getElementById("snowball"))},"loading"!=document.readyState?n():document.addEventListener("DOMContentLoaded",n)}();
+  //]]>
+</script>
+
+
+<head>
+    <title>Crosswords Leaderboard</title>
+    <link rel="stylesheet" href="leaderboardStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" 
+    crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header>
+      <div class="header">
+          <a href="#" class="ARC">ARC</a>
+          <ul>
+              <li><a href="#" class="active">Home</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Kontak</a></li>
+          </ul>
+      </div>
+
+      <div id="containerInfo">
+        <div class="infoRow">
+            <div class="name">Player Name</div><div class="score">Time (s)</div>
+          </div>
+    </div>
+    
+    <div id="container">
+      <% leaderboardlistings.forEach(details => { %>
+        <div class="row">
+            <div class="name">
+              <%= details.name %>
+            </div>
+            <div class="score">
+              <%= details.time %>
+            </div>
+            <a href="/remove/<%= details._id %>" class="remove">
+              <span class="fas fa-times"></span>
+            </a>
+        </div>
+      <% }) %>
+    </div>
+     
+  </header>
+
+</body>
+
+<!-- <div id="inpmethod">
+  <form action="/newdata" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="time" name="time">
+    <button type="submit">Submit</button>
+  </form>
+</div> -->

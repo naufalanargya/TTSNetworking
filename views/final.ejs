@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <style type='text/css'>
+        /* Efek Bola Salju */
+        .snowball{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:20}
+        .snowsand{height:100%;position:relative;overflow:hidden;z-index:1}
+    </style>
+<head>
+    <title>TTS Networking</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div class='snowsand'>
+    <canvas class='snowball' id='snowball'></canvas>
+    </div>
+    <script type='text/javascript'>
+    //<![CDATA[
+    !function(){function t(t){var n=t.getContext("2d"),e=0,i=0,o=[],d=function(){this.x=this.y=this.dx=this.dy=0,this.reset()};function a(){e=window.innerWidth,i=window.innerHeight,t.width=e,t.height=i,function(t){if(t!=o.length){o=[];for(var n=0;n<t;n++)o.push(new d)}}(e*i/1e4)}d.prototype.reset=function(){this.y=Math.random()*i,this.x=Math.random()*e,this.dx=1*Math.random()-.5,this.dy=.5*Math.random()+.5},a(),function t(){n.clearRect(0,0,e,i),n.fillStyle="rgba(255,255,255,.3)",o.forEach(function(t){t.y+=t.dy,t.x+=t.dx,t.y>i&&(t.y=0),t.x>e&&(t.reset(),t.y=0),n.beginPath(),n.arc(t.x,t.y,5,0,2*Math.PI,!1),n.fill()}),window.requestAnimationFrame(t)}(),window.addEventListener("resize",a)}var n;n=function(){t(document.getElementById("snowball"))},"loading"!=document.readyState?n():document.addEventListener("DOMContentLoaded",n)}();
+    //]]>
+    </script>
+<body>
+    <header>
+        <div class="header">
+            <a href="#" class="ARC">ARC</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+        <div class="title">
+            <hl>Finished!</hl>
+            <h2 id="endtime">00 seconds</h2>
+                <input type="text" placeholder="Leaderboard Alias" name="alias" id="alias">
+                <button onclick="submitscore()">Submit</button>
+        </div>
+    </header>
+    <section class="banner"></section>
+    <!-- Optional JavaScript -->
+    <script src="tts.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        document.getElementById("endtime").innerHTML = localStorage.getItem("totalTime") + " seconds";
+    </script>
+    <script>
+        function submitscore(){
+            let alias = document.getElementById("alias").value;
+            totalTimeTemp = localStorage.getItem("totalTime");
+            window.location.href = 'newdata/' + alias + '/' + totalTimeTemp;
+        }
+    </script>
+</body>
+</html>
